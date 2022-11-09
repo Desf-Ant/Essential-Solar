@@ -1,0 +1,138 @@
+﻿html, body {
+    
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 20px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    margin-left: 40px;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 0;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+}
+.step.active {
+    background-color: #dff26f;
+}
+.step.finish {
+    background-color: #78f26f;
+}
+
+.path-row {
+    height: 100px;
+    width: 5px;
+    margin: 0 0;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 100%/5%;
+    display: inline-block;
+    flex-shrink: 2;
+}
+.path-row.active {
+    background: linear-gradient(#78f26f, #dff26f);
+}
+.path-row.finish {
+    background-color: #78f26f;
+}
+
+
+
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+#regForm {
+    background-color: #ffffff;
+    margin: 100px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+}
+
+.tab {
+    display: none;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+input.invalid {
+    background-color: #ffdddd;
+}
+
+.div-buttons {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+.button-28 {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 17px;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0;
+    min-height: 30px;
+    min-width: 0;
+    outline: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.button-28:disabled {
+    pointer-events: none;
+}
+
+.button-28:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
