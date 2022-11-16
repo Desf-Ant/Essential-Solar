@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/antoined/Projects/SolarDimension/SolarDimension.BL/SolarDimension.BL.csproj",
+      "projectUniqueName": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.BL/SolarDimension.BL.csproj",
       "projectName": "SolarDimension.BL",
-      "projectPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.BL/SolarDimension.BL.csproj",
+      "projectPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.BL/SolarDimension.BL.csproj",
       "packagesPath": "/Users/antoined/.nuget/packages/",
-      "outputPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.BL/obj/",
+      "outputPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.BL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/antoined/.nuget/NuGet/NuGet.Config"

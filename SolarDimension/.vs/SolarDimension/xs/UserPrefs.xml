@@ -21,18 +21,6 @@
             <Node name="SolarDimension.Web" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Form" expanded="True">
-                  <Node name="Index.cshtml" expanded="True" />
-                </Node>
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="js" expanded="True">
-                  <Node name="Form" expanded="True" />
-                </Node>
-              </Node>
             </Node>
           </Node>
         </State>

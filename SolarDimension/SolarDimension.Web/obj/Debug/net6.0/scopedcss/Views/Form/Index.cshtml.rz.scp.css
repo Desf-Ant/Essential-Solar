@@ -136,3 +136,7 @@ input.invalid[b-uf5iqxb4bq] {
     box-shadow: none;
     transform: translateY(0);
 }
+
+#map[b-uf5iqxb4bq] {
+    height: 200px;
+}

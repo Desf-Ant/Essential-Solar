@@ -8,12 +8,20 @@
 
   <ItemGroup>
     <None Remove="Views\Form\" />
+    <None Remove="microsoft-web-helpers" />
+    <None Remove="leaflet" />
+    <None Remove="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Form\" />
     <Folder Include="wwwroot\js\Form\" />
+    <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\js\Form\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="microsoft-web-helpers" Version="2.1.20710.2" />
+    <PackageReference Include="leaflet" Version="0.7.3" />
   </ItemGroup>
 </Project>

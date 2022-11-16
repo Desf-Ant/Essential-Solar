@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj": {}
+    "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj": {}
   },
   "projects": {
-    "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj": {
+    "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
+        "projectUniqueName": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
         "projectName": "SolarDimension.Web",
-        "projectPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
+        "projectPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
         "packagesPath": "/Users/antoined/.nuget/packages/",
-        "outputPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/obj/",
+        "outputPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/antoined/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "leaflet": {
+              "target": "Package",
+              "version": "[0.7.3, )"
+            },
+            "microsoft-web-helpers": {
+              "target": "Package",
+              "version": "[2.1.20710.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

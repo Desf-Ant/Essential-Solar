@@ -1,11 +1,192 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "leaflet/0.7.3": {
+        "type": "package"
+      },
+      "microsoft-web-helpers/2.1.20710.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebPages": "[2.0.0, 2.1.0)",
+          "Microsoft.AspNet.WebPages.WebData": "[2.0.0, 2.1.0)"
+        },
+        "compile": {
+          "lib/net40/Microsoft.Web.Helpers.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Helpers.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/2.0.20505": {
+        "type": "package",
+        "compile": {
+          "lib/net40/System.Web.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/2.0.20505": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "2.0.20505",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.Data/2.0.20505": {
+        "type": "package",
+        "compile": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/2.0.20505": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "2.0.20505"
+        },
+        "compile": {
+          "lib/net40/WebMatrix.WebData.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebMatrix.WebData.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "leaflet/0.7.3": {
+      "sha512": "R20Vv1lXuqcu6lKeHFy8KnahLxetHaKBS0S2y/mrq+phhkTtz0zIr6isxJR89LuQR9v53aKNMFVyaxLU+zagEw==",
+      "type": "package",
+      "path": "leaflet/0.7.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Content/images/layers-2x.png",
+        "content/Content/images/layers.png",
+        "content/Content/images/marker-icon-2x.png",
+        "content/Content/images/marker-icon.png",
+        "content/Content/images/marker-shadow.png",
+        "content/Content/leaflet.css",
+        "content/Scripts/leaflet-0.7.3.js",
+        "content/Scripts/leaflet-0.7.3.min.js",
+        "leaflet.0.7.3.nupkg.sha512",
+        "leaflet.nuspec"
+      ]
+    },
+    "microsoft-web-helpers/2.1.20710.2": {
+      "sha512": "vzUNqlz+dVoN0WsAPBtiqYNEMsg6kRYYIGlNsWcmnASIQkpeCCEYcXPIUNk2j2dbor4RC2niFwAPHtt7zLwqnQ==",
+      "type": "package",
+      "path": "microsoft-web-helpers/2.1.20710.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.txt",
+        "lib/net40/Microsoft.Web.Helpers.dll",
+        "microsoft-web-helpers.2.1.20710.2.nupkg.sha512",
+        "microsoft-web-helpers.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.Razor/2.0.20505": {
+      "sha512": "Gk3ZVP/bwGsKx3fQf4EHoIzCApHU9LTIWOjmABa5VMT7axwyPDtUq3wGfW3LiHmlHjkh/SwnZzwCw1LnCTgmBQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.razor/2.0.20505",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/System.Web.Razor.dll",
+        "lib/net40/System.Web.Razor.xml",
+        "microsoft.aspnet.razor.2.0.20505.nupkg.sha512",
+        "microsoft.aspnet.razor.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/2.0.20505": {
+      "sha512": "/eILBjvoH9y3DqTZO3HX0HHyocyQPzdR125lVxSVHJUQq6NosyYS9BdcLlug9c7qYtVkDcUDxQRhHTBnDqC1VA==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages/2.0.20505",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/System.Web.Helpers.dll",
+        "lib/net40/System.Web.Helpers.xml",
+        "lib/net40/System.Web.WebPages.Deployment.dll",
+        "lib/net40/System.Web.WebPages.Deployment.xml",
+        "lib/net40/System.Web.WebPages.Razor.dll",
+        "lib/net40/System.Web.WebPages.Razor.xml",
+        "lib/net40/System.Web.WebPages.dll",
+        "lib/net40/System.Web.WebPages.xml",
+        "microsoft.aspnet.webpages.2.0.20505.nupkg.sha512",
+        "microsoft.aspnet.webpages.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.Data/2.0.20505": {
+      "sha512": "HmBbQ2Nhlh6pPWisHFpdQsJQ/kKI0UamTXEP9br5T1ohoTG98QqE7UzicF0NVpGD281ugpEswvlHFoNCTa5L3A==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.data/2.0.20505",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/WebMatrix.Data.dll",
+        "lib/net40/WebMatrix.Data.xml",
+        "microsoft.aspnet.webpages.data.2.0.20505.nupkg.sha512",
+        "microsoft.aspnet.webpages.data.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.WebData/2.0.20505": {
+      "sha512": "ogl8BC4O0iw4BntvNd8YNPqbkMstATOtEZCpwa2ZXppjkbzOv0yxZnUiniWpr1oXE4BEFRgGbUwHMHZ1t4i1RQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.webdata/2.0.20505",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/WebMatrix.WebData.dll",
+        "lib/net40/WebMatrix.WebData.xml",
+        "microsoft.aspnet.webpages.webdata.2.0.20505.nupkg.sha512",
+        "microsoft.aspnet.webpages.webdata.nuspec"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.Web.Infrastructure.dll",
+        "microsoft.web.infrastructure.1.0.0.nupkg.sha512",
+        "microsoft.web.infrastructure.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "leaflet >= 0.7.3",
+      "microsoft-web-helpers >= 2.1.20710.2"
+    ]
   },
   "packageFolders": {
     "/Users/antoined/.nuget/packages/": {}
@@ -13,11 +194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
+      "projectUniqueName": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
       "projectName": "SolarDimension.Web",
-      "projectPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
+      "projectPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/SolarDimension.Web.csproj",
       "packagesPath": "/Users/antoined/.nuget/packages/",
-      "outputPath": "/Users/antoined/Projects/SolarDimension/SolarDimension.Web/obj/",
+      "outputPath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.Web/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/antoined/.nuget/NuGet/NuGet.Config"
@@ -43,6 +224,16 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "leaflet": {
+            "target": "Package",
+            "version": "[0.7.3, )"
+          },
+          "microsoft-web-helpers": {
+            "target": "Package",
+            "version": "[2.1.20710.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -65,5 +256,87 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "microsoft-web-helpers 2.1.20710.2 depends on Microsoft.AspNet.WebPages (>= 2.0.0 && < 2.1.0) but Microsoft.AspNet.WebPages 2.0.0 was not found. An approximate best match of Microsoft.AspNet.WebPages 2.0.20505 was resolved.",
+      "libraryId": "Microsoft.AspNet.WebPages",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "microsoft-web-helpers 2.1.20710.2 depends on Microsoft.AspNet.WebPages.WebData (>= 2.0.0 && < 2.1.0) but Microsoft.AspNet.WebPages.WebData 2.0.0 was not found. An approximate best match of Microsoft.AspNet.WebPages.WebData 2.0.20505 was resolved.",
+      "libraryId": "Microsoft.AspNet.WebPages.WebData",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'microsoft-web-helpers 2.1.20710.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "microsoft-web-helpers",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Razor 2.0.20505' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Razor",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages 2.0.20505' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages.Data 2.0.20505' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages.Data",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages.WebData 2.0.20505' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages.WebData",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Web.Infrastructure",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

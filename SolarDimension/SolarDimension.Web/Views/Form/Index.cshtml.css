@@ -136,3 +136,7 @@ input.invalid {
     box-shadow: none;
     transform: translateY(0);
 }
+
+#map {
+    height: 200px;
+}

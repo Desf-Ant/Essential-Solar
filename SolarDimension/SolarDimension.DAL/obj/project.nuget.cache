@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lbr9rHm+MyjyUZZ2MxHcvPI4e3V9b3w4Na8HajfEmv4sw8/witic+jKlPYRNBXAC4dq2T3cvuhqJiRkQb3+f/g==",
+  "dgSpecHash": "UqwO+dZJuBFREOc4LqUBDz6AwFRGlJVMIZuQgBBR+PvrA+E1eXFCdot+2Iw+Cca76K1FRmtUMRaXidlIJxDyHg==",
   "success": true,
-  "projectFilePath": "/Users/antoined/Projects/SolarDimension/SolarDimension.DAL/SolarDimension.DAL.csproj",
+  "projectFilePath": "/Users/antoined/Projects/Essential-Solar/SolarDimension/SolarDimension.DAL/SolarDimension.DAL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
