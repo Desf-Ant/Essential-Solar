@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" ></script>
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 
 <div class="sidenav">
@@ -63,3 +65,4 @@
     </form>
 </div>
 
+{% endblock %}
