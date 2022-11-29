@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" ></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+
+<div class="sidenav">
+    <div style="text-align:center">
+        <span class="step"></span>
+        <span class="path-row"></span>
+        <span class="step"></span>
+        <span class="path-row"></span>
+        <span class="step"></span>
+        <span class="path-row"></span>
+        <span class="step"></span>
+        <span class="path-row"></span>
+        <span class="step"></span>
+    </div>
+</div>
+
+<div class="main">
+    <form id="regForm" action="">
+
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+            <h2>
+                Afin de pouvoir vous garantir le meilleur dimesionnement de votre installation de panneaux photovoltaïques,
+                veuillez remplir ce formulaire s'il vous plaît
+            </h2>
+        </div>
+
+        <div class="tab">
+            <h2>Quelle est votre adresse ?</h2>
+            <br />
+            <p><input placeholder="11 Rue Sully ..." oninput=""></p>
+            <div id="map"></div>
+
+        </div>
+
+        <div class="tab">
+            <h2>Combien de surface pouvez-vous couvrir ?</h2>
+            <br />
+            <p><input placeholder="m2" oninput=""></p>
+        </div>
+
+        <div class="tab">
+            <h2>À quel pourcentage souhaitez vous faire correspondre votre projet au plan sobriété RT2020 ?</h2>
+            <br />
+            <p><input placeholder="...%" oninput="this.className = ''"></p>
+            <a href="https://www.ecologie.gouv.fr/reglementation-environnementale-re2020">Qu'est ce que le RT2020 ?</a>
+        </div>
+
+        <div class="tab">
+            <h2>Vous y êtes presque, c'est la dernière étape ...</h2>
+        </div>
+
+        <!-- Buttons -->
+        <div style="overflow:auto;">
+            <div class="div-buttons">
+                <button class="button-28" type="button" id="prevBtn" onclick="nextPrev(-1)">&lt Précédent</button>
+                <button class="button-28" type="button" id="nextBtn" onclick="nextPrev(1)">"Suivant >"</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
