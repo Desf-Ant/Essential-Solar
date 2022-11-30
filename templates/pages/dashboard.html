@@ -1,0 +1,77 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<!-- https://medium.com/@kevjose/building-dashboards-using-grid-and-flex-box-620adc1fff51 -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<div class="grid-container">
+    <header class="header">
+        <div class="header_search">Search</div>
+        <div class="header_avatar">Logout</div>
+    </header>
+    <aside class="aside">
+        <ul>
+            <li class="aside_list-item">Courbe puissance annuelle</li>
+            <li class="aside_list-item">Courbe puissance hebdomadaire</li>
+            <li class="aside_list-item">Courbe puissance journalière</li>
+            <li class="aside_list-item">Monotone de puissance</li>
+        </ul>
+    </aside>
+    <main class="main">
+        <div class="main_overview">
+            <div class="overview_card">
+                <div class="overview_card-info">Overview</div>
+                <div class="overview_card-icon">Card</div>
+            </div>
+            <div class="overview_card">
+                <div class="overview_card-info">Overview</div>
+                <div class="overview_card-icon">Card</div>
+            </div> 
+            <div class="overview_card">
+                <div class="overview_card-info">Overview</div>
+                <div class="overview_card-icon">Card</div>
+            </div>
+            <div class="overview_card">
+                <div class="overview_card-info">Overview</div>
+                <div class="overview_card-icon">Card</div>
+            </div>
+        </div>
+        <div class="main_cards">
+            <div class="card">Card</div>
+            <div class="card">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="card">Card</div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer_copyright">&copy;</div>
+        <div class="footer_byline">Made with &hearts;</div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+</script>
+
+{% endblock %}

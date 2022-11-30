@@ -2,9 +2,34 @@
 
 {% block body %}
 
-<h1>
-    Go to the form
-    <a href="{{ url_for('form') }}">here</a>
-</h1>
+<head>
+    <title>Panneaux Solaires</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
 
+<body>
+    <section class="header">
+        <nav>
+            <a href=""><img src="{{url_for('static', filename='/images/logo.png')}}"/></a>
+            <div class ="nav-links">
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABOUT US</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    <div class="text-box">
+        <h1>Outil de dimensionnement de panneaux photovoltaïques </h1>
+        <p>Essential Solar Company vous accompagne dans votre transition énergétique ! </p>
+        <!-- Essential Solar Company vous accompagne dans la transition énergétique en vous proposant un outil décisionnel vous permettant de dimensionner et d'optimiser la pose de panneaux photovoltaïques en accord avec vos besoins -->
+        <a href ="{{ url_for('form') }}" class="hero-btn">Essayez-nous !</a>
+    </div>
+    </section>
+</body>
+
+        <!--https://www.youtube.com/watch?v=oYRda7UtuhA&list=PLjwm_8O3suyP5kGKmwS_DM0Hs1j7fshi5-->
 {% endblock %}
