@@ -13,7 +13,9 @@ def index():
 def form():
     return render_template("pages/form.html")
 
-
+@app.route("/dashboard")
+def dashboard():
+    return render_template("pages/dashboard.html")
 
 
 
