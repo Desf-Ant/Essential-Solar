@@ -14,11 +14,6 @@ def form():
     return render_template("pages/form.html")
 
 
-
-
-
-
-
 @app.route("/hello/")
 @app.route("/hello/<name>")
 def hello_world(name=None):
