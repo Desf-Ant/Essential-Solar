@@ -29,6 +29,8 @@ def open_csv(path="static/data/courbe_puissance_charge_lycee_cassin.csv") :
         for i in range(len(reader)):
             dates.append(reader[i][0])
             conso.append(reader[i][1])
+    dates.pop(0)
+    conso.pop(0)
     return dates, conso
 
 

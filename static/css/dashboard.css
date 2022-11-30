@@ -82,7 +82,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    height: 100px;
+    min-height: 100px;
+    max-height:1500px;
     border: 1px solid darkblue;
     border-radius: 4px;
     color: darkblue;
@@ -94,8 +95,8 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 200px 300px;
     grid-template-areas:
-        'card1 card2'
-        'card1 card3';
+        'card1 card1'
+        'card1 card1';
     grid-gap: 10px;
 }
 
@@ -114,4 +115,8 @@
 }
 .card:nth-child(3) {
     grid-area: card3;
+}
+
+.chart {
+    width: auto;
 }

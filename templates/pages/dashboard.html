@@ -33,15 +33,13 @@
                 <div class="overview_card-icon">Card</div>
             </div>
             <div class="overview_card">
-                <div class="overview_card-info">Overview</div>
-                <div class="overview_card-icon">Card</div>
+                <div class="overview_card-info"></div>
             </div>
         </div>
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
         <div class="main_cards">
-            <div class="card">Card</div>
-            <div class="card">
-                <canvas id="myChart"></canvas>
-            </div>
             <div class="card">Card</div>
         </div>
     </main>
@@ -54,22 +52,54 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const ctx = document.getElementById('myChart');
+    var data = JSON.parse('{{ conso | safe }}');
     new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: Array.from(Array(data.length).keys()),
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Puissance sur un an',
+            data: data,
             borderWidth: 1
         }]
         },
         options: {
-        scales: {
-            y: {
-            beginAtZero: true
+            elements: {
+                point:{
+                    radius: 0
+                }
+            },
+            scales: {
+                x: {
+                    ticks : {
+                        callback : function (val, index) {
+                            if (index == 0) 
+                                return this.getLabelForValue("Janvier");
+                            else if (index == 4466) 
+                                return this.getLabelForValue("Février");
+                            else if (index == 8498) 
+                                return this.getLabelForValue("Mars");
+                            else if (index == 12956) 
+                                return this.getLabelForValue("Avril");
+                            else if (index == 17276) 
+                                return this.getLabelForValue("Mai");
+                            else if (index == 21740) 
+                                return this.getLabelForValue("Juin");
+                            else if (index == 26060) 
+                                return this.getLabelForValue("Juillet");
+                            else if (index == 30524) 
+                                return this.getLabelForValue("Août");
+                            else if (index == 34988) 
+                                return this.getLabelForValue("Septembre");
+                            else 
+                                return this.getLabelForValue("");
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true
+                }
             }
-        }
         }
     });
 </script>
