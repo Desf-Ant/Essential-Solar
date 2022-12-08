@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
 <div class="grid-container">
     <header class="header">
         <div class="header_search">Search</div>
@@ -21,7 +23,7 @@
     <main class="main">
         <div class="main_overview">
             <div class="overview_card">
-                <div class="overview_card-info">Overview</div>
+                <div class="overview_card-info">OK</div>
                 <div class="overview_card-icon">Card</div>
             </div>
             <div class="overview_card">
@@ -37,7 +39,10 @@
             </div>
         </div>
         <div class="chart">
-            <canvas id="myChart"></canvas>
+            <canvas id="conso_annuelle_chart"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="monotone_puissance_chart"></canvas>
         </div>
         <div class="main_cards">
             <div class="card">Card</div>
@@ -50,58 +55,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const ctx = document.getElementById('myChart');
-    var data = JSON.parse('{{ conso | safe }}');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-        labels: Array.from(Array(data.length).keys()),
-        datasets: [{
-            label: 'Puissance sur un an',
-            data: data,
-            borderWidth: 1
-        }]
-        },
-        options: {
-            elements: {
-                point:{
-                    radius: 0
-                }
-            },
-            scales: {
-                x: {
-                    ticks : {
-                        callback : function (val, index) {
-                            if (index == 0) 
-                                return this.getLabelForValue("Janvier");
-                            else if (index == 4466) 
-                                return this.getLabelForValue("Février");
-                            else if (index == 8498) 
-                                return this.getLabelForValue("Mars");
-                            else if (index == 12956) 
-                                return this.getLabelForValue("Avril");
-                            else if (index == 17276) 
-                                return this.getLabelForValue("Mai");
-                            else if (index == 21740) 
-                                return this.getLabelForValue("Juin");
-                            else if (index == 26060) 
-                                return this.getLabelForValue("Juillet");
-                            else if (index == 30524) 
-                                return this.getLabelForValue("Août");
-                            else if (index == 34988) 
-                                return this.getLabelForValue("Septembre");
-                            else 
-                                return this.getLabelForValue("");
-                        }
-                    }
-                },
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+<script src="{{ url_for('static', filename='js/dashboard_chart.js') }}"></script>
 
 {% endblock %}
