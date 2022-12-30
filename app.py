@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask import render_template
-import json
+from static.scripts.genetique.Genetique.Dieu import *
 import csv
 
 app = Flask(__name__)
@@ -18,9 +18,12 @@ def form():
 def dashboard():
     if request.method == "POST" :
         print(request.form["surface"])
-    dates, conso_annuelle = open_csv()
-    calc_create_monotone()
-    return render_template("pages/dashboard.html",  conso_annuelle=json.dumps(conso_annuelle))
+    d = Dieu()
+    return render_template("pages/dashboard/dashboard.html", surface=d.best_solution.attributs[1] * d.BD_pv.getPanneaux(d.best_solution.attributs[0]).surface)
+
+@app.route("/dashboard/load_curve")
+def load_curve():
+    return render_template("pages/dashboard/load_curve.html")
 
 
 def open_csv(path="static/data/courbe_puissance_charge_lycee_cassin.csv") :
