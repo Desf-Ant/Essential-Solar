@@ -25,12 +25,26 @@
         <!-- Partie Carte -->
         <div class="cardbox">
             <div class="card">
-                <div class="title">Prix de l'installation</div>
-                <div class="content">50000€</div>
+                <div class="title">Nombre de panneaux déployés</div>
+                <div class="content"> {{ dieu.best_solution.attributs[1] }} </div>
             </div>
             <div class="card">
-                <div class="title">Référence panneaux</div>
-                <div class="content">Rf-500Wh AGdf</div>
+                <div class="title">Surface utilisée</div>
+                <div class="content"> {{ (dieu.BD_pv.getPanneaux(dieu.best_solution.attributs[0]).surface * dieu.best_solution.attributs[1]) | round(1) }} m²</div>
+            </div>
+            <div class="card">
+                <div class="title">Surface utilisée</div>
+                <div class="content"> {{ dieu.BD_pv.getPanneaux(dieu.best_solution.attributs[0]).ref }} </div>
+            </div>
+        </div>
+        <div class="cardbox">
+            <div class="card">
+                <div class="title">Référence onduleur</div>
+                <div class="content"> Turbo Energy 48v 5.0K </div>
+            </div>
+            <div class="card">
+                <div class="title">Nombre et référence batterie</div>
+                <div class="content">LUNA2000 5-E0</div>
             </div>
         </div>
 

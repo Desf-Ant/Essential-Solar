@@ -17,9 +17,14 @@ def form():
 @app.route("/dashboard", methods=("GET","POST"))
 def dashboard():
     if request.method == "POST" :
-        print(request.form["surface"])
-    d = Dieu()
-    return render_template("pages/dashboard/dashboard.html", surface=d.best_solution.attributs[1] * d.BD_pv.getPanneaux(d.best_solution.attributs[0]).surface)
+        # Récupération de la courbe de charge avec le point de récupération request.form["access_point"] sur l'API Enedis
+        
+        # Création de la monotonne de puissance depuis la courbe de charge
+        
+        # Algorithme évolutionniste pour la meilleure réponse
+        d = Dieu(consommation_max=380_000,surface_disponible=int(request.form["surface"]))
+        
+        return render_template("pages/dashboard/dashboard.html", dieu=d)
 
 @app.route("/dashboard/load_curve")
 def load_curve():
