@@ -11,7 +11,7 @@ class Dieu :
         self.score_min = 5_000_000
         self.best_solution = None
         self.current_generation = 0
-        self.generation_max = 10_000
+        self.generation_max = 1000
 
         self.consommation_max = consommation_max
         self.surface_disponible = surface_disponible

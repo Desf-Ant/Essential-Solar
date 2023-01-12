@@ -8,17 +8,18 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
 <div class="grid-container">
-    <header class="header">
-        <div class="header_search">Search</div>
-        <div class="header_avatar">Logout</div>
-    </header>
+    <header class="header"></header>
     <aside class="aside">
-        <ul>
-            <li class="aside_list-item"><a href="{{ url_for('dashboard') }}">Général</a></li>
-            <li class="aside_list-item"><a href="{{ url_for('load_curve') }}">Courbe de charge</a></li>
-            <li class="aside_list-item">Monotone de puissance</li>
-            <li class="aside_list-item">Détails</li>
-        </ul>
+        <div class="title">Essential Solar</div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('dashboard') }}">Général</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('load_curve') }}">Courbe de charge</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="#">ROI</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="#">Maintenance</a></div>
+        <div class="separator"></div>
     </aside>
     <main class="main">
         <!-- Partie Carte -->

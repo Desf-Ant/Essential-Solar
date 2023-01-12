@@ -20,12 +20,12 @@
 
 .header {
     grid-area: header;
-    background-color: whitesmoke;
+    background-color: #89A0F4;
 }
 
 .aside {
     grid-area: aside;
-    background-color: darkblue;
+    background-color: #4C6EF5;
 }
 
 .main {
@@ -43,30 +43,54 @@
     align-items: center;
     justify-content: space-between;
     color: darkblue;
-    padding: 0 15px;
 }
 
 .aside {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.aside_list {
-    padding:0;
-    margin-top: 85px;
-    list-style-type: none;
+/* Liens à gauche */
+.aside .title {
+    padding: 50px 0;
+    border-bottom: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 800;
+    color: white;
 }
 
-.aside_list-item {
-    padding: 20px 20px 20px 40px;
-    color: #ddd;
+.aside .link {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    text-align: center;
 }
 
-.aside_list-item:hover {
-    background-color: royalblue;
-    cursor: pointer;
+.aside .link:hover {
+    background-color: #2443bd;
 }
 
+.aside .link a {
+    font-size: larger;
+    text-decoration: None;
+    color: white;
+}
+
+.aside .separator {
+    background-color: #2443bd;;
+    height: 2px;
+    width: 33%;
+    border: 5px 0;
+    margin: 2px 0;
+}
+
+/* Cartes d'information */
 .cardbox {
     display: flex;
     align-items:center;
@@ -102,7 +126,7 @@
 }
 
 .card:hover {
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    background:#2443bd;
 }
 .card:hover .title {
     color:white;
