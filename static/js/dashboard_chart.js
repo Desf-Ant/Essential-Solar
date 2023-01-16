@@ -1,7 +1,56 @@
 
-function create_load_curve(element, csv) {
+function create_load_curve(element, csv, callback_simplified=false) {
    var x = [];
    var y = [];
+
+   var call_axis = function (val, index) {
+      if (index == 0) 
+         return this.getLabelForValue("Janvier");
+      else if (index == 4466) 
+         return this.getLabelForValue("Février");
+      else if (index == 8498) 
+         return this.getLabelForValue("Mars");
+      else if (index == 12956) 
+         return this.getLabelForValue("Avril");
+      else if (index == 17276) 
+         return this.getLabelForValue("Mai");
+      else if (index == 21740) 
+         return this.getLabelForValue("Juin");
+      else if (index == 26060) 
+         return this.getLabelForValue("Juillet");
+      else if (index == 30524) 
+         return this.getLabelForValue("Août");
+      else if (index == 34988) 
+         return this.getLabelForValue("Septembre");
+      else 
+         return this.getLabelForValue("");
+   }
+
+   if (callback_simplified) {
+      call_axis = function (val, index) {
+         if (index == 0) 
+            return this.getLabelForValue("Janvier");
+         else if (index == 31) 
+            return this.getLabelForValue("Février");
+         else if (index == 59) 
+            return this.getLabelForValue("Mars");
+         else if (index == 90) 
+            return this.getLabelForValue("Avril");
+         else if (index == 120) 
+            return this.getLabelForValue("Mai");
+         else if (index == 151) 
+            return this.getLabelForValue("Juin");
+         else if (index == 182) 
+            return this.getLabelForValue("Juillet");
+         else if (index == 212) 
+            return this.getLabelForValue("Août");
+         else if (index == 243) 
+            return this.getLabelForValue("Septembre");
+         else 
+            return this.getLabelForValue("");
+      }
+   }
+
    csv.then( (data) => {
       let keys = Object.keys(data[0]);
 
@@ -30,28 +79,7 @@ function create_load_curve(element, csv) {
             scales: {
                   x: {
                      ticks : {
-                        callback : function (val, index) {
-                              if (index == 0) 
-                                 return this.getLabelForValue("Janvier");
-                              else if (index == 4466) 
-                                 return this.getLabelForValue("Février");
-                              else if (index == 8498) 
-                                 return this.getLabelForValue("Mars");
-                              else if (index == 12956) 
-                                 return this.getLabelForValue("Avril");
-                              else if (index == 17276) 
-                                 return this.getLabelForValue("Mai");
-                              else if (index == 21740) 
-                                 return this.getLabelForValue("Juin");
-                              else if (index == 26060) 
-                                 return this.getLabelForValue("Juillet");
-                              else if (index == 30524) 
-                                 return this.getLabelForValue("Août");
-                              else if (index == 34988) 
-                                 return this.getLabelForValue("Septembre");
-                              else 
-                                 return this.getLabelForValue("");
-                        }
+                        callback : call_axis
                      }
                   },
                   y: {

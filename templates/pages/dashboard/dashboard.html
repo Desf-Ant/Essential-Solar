@@ -22,19 +22,20 @@
         <div class="separator"></div>
     </aside>
     <main class="main">
+        {% set dieu = session["dieu"] %}
         <!-- Partie Carte -->
         <div class="cardbox">
             <div class="card">
                 <div class="title">Nombre de panneaux déployés</div>
-                <div class="content"> {{ dieu.best_solution.attributs[1] }} </div>
+                <div class="content"> {{ dieu["nb_panneaux"] }} </div>
             </div>
             <div class="card">
                 <div class="title">Surface utilisée</div>
-                <div class="content"> {{ (dieu.BD_pv.getPanneaux(dieu.best_solution.attributs[0]).surface * dieu.best_solution.attributs[1]) | round(1) }} m²</div>
+                <div class="content"> {{ dieu["nb_panneaux"] * dieu["panneau"]["surface"] | int | round(1) }} m²</div>
             </div>
             <div class="card">
-                <div class="title">Surface utilisée</div>
-                <div class="content"> {{ dieu.BD_pv.getPanneaux(dieu.best_solution.attributs[0]).ref }} </div>
+                <div class="title">Référence panneau</div>
+                <div class="content"> {{ dieu["panneau"]["reference"] }} </div>
             </div>
         </div>
         <div class="cardbox">
@@ -49,17 +50,28 @@
         </div>
 
 
-
         <div class="chart">
             <canvas id="conso_annuelle_chart" class="loadingChart"></canvas>
         </div>
         <div class="chart">
             <canvas id="monotone_puissance_chart" class="loadingChart"></canvas>
         </div>
+
+        <div class="cardbox">
+            <div class="card">
+                <div class="title">Prix du kWh sur 20 ans</div>
+                <div class="content"> 0.56€ </div>
+            </div>
+            <div class="card">
+                <div class="title">Retour sur Investissement</div>
+                <div class="content">450€</div>
+            </div>
+        </div>
+
     </main>
     <footer class="footer">
-        <div class="footer_copyright">&copy;</div>
-        <div class="footer_byline">Made with &hearts;</div>
+        <div class="footer_copyright">all copyrights reserved&copy;</div>
+        <div class="footer_byline">Essential Solar;</div>
     </footer>
 </div>
 
@@ -68,7 +80,8 @@
 <script>
     create_load_curve(
         document.getElementById('conso_annuelle_chart'),
-        d3.csv("static/data/courbe_puissance_charge_lycee_cassin.csv")
+        d3.csv("static/data/simplified_courbe_puissance_charge_lycee_cassin.csv"),
+        callback_simplified = true
     );
     create_load_mono_curve(
         document.getElementById('monotone_puissance_chart'),

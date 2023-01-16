@@ -1,6 +1,7 @@
 from static.scripts.genetique.Genetique.BasesDonnees.BD_PV import *
 from static.scripts.genetique.Genetique.Solution import Solution
 from random import randint, random
+import json
 
 class Dieu :
 
@@ -119,6 +120,12 @@ class Dieu :
             pen = self.penality_function(sol)
             scores.append(fit-pen)
         return scores.index(max(scores)), max(scores)
+    
+    def toJson(self) :
+        return {
+            "nb_panneaux" : self.best_solution.attributs[1],
+            "panneau" : self.BD_pv.getPanneaux(self.best_solution.attributs[0]).toJson()
+        }
 
   
 if __name__ == "__main__" :

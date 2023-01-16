@@ -1,3 +1,4 @@
+import json
 
 class PV :
 
@@ -23,3 +24,18 @@ class PV :
 
     def __str__(self) -> str:
         return "id: {id},\n {ref},\n {type},\n {parkWh} €/kWh, \n {surface} m2,\n {prix} €\n".format(id=self.id, ref=self.ref, type=self.type, parkWh=self.prix_par_kWh,prix=self.prix, surface=self.surface)
+    
+    def toJson(self) :
+        return {
+            "id" : self.id,
+            "reference" : self.ref,
+            "prix_par_kWh": self.prix_par_kWh,
+            "type" : self.type,
+            "dimension":self.dimension,
+            "surface":self.surface,
+            "gamme_puissance":self.gamme_puissance,
+            "efficacite":self.efficacite,
+            "poids":self.poids,
+            "region":self.region,
+            "prix":self.prix
+        }
