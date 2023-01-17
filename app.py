@@ -31,9 +31,9 @@ def dashboard():
         
     return render_template("pages/dashboard/dashboard.html")
 
-@app.route("/dashboard/load_curve")
-def load_curve():
-    return render_template("pages/dashboard/load_curve.html")
+@app.route("/dashboard/details")
+def details():
+    return render_template("pages/dashboard/details.html")
 
 
 def open_csv(path="static/data/courbe_puissance_charge_lycee_cassin.csv") :

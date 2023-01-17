@@ -135,6 +135,60 @@
     color:white;
 }
 
+/* Big card for details */
+.bigCardBox {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.bigCard {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 10px;
+    padding: 20px 10px;
+    background-color: #fff;
+    width : 50%;
+    border-radius: 5px;
+    display:flex;
+    flex-direction:column;
+}
+
+.bigCard .title {
+    text-align:left;
+    font-weight: 600;
+    font-size: 2.25em;
+    padding-left: 1%;
+}
+
+.bigCard .content {
+    text-align:left;
+    font-weight: 400;
+    font-size: 1.5em;
+    color: gray;
+    padding-left: 5%;
+}
+
+.bigCardBox:hover .card {
+    background:#3498db;
+}
+.bigCardBox:hover .bigCard {
+    background:#3498db;
+}
+.bigCardBox:hover .card .title {
+    color:white;
+}
+.bigCardBox:hover .card .content {
+    color:white;
+}
+.bigCardBox:hover .bigCard .title {
+    color:white;
+}
+.bigCardBox:hover .bigCard .content {
+    color:white;
+}
+
+/* Chart */
+
 .chart {
     width: auto;
     display: flex;
@@ -185,10 +239,10 @@
     flex-direction: row;
     flex-shrink: 0;
     font-family: "RM Neue",sans-serif;
-    font-size: 100%;
+    font-size: 1.5em;
     line-height: 1.15;
     margin: 0;
-    padding: 10px 21px;
+    padding: 15px 40px;
     text-align: center;
     text-transform: none;
     user-select: none;

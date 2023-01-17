@@ -14,7 +14,7 @@
         <div class="separator"></div>
         <div class="link"><a href="{{ url_for('dashboard') }}">Général</a></div>
         <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('load_curve') }}">Courbe de charge</a></div>
+        <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
         <div class="separator"></div>
         <div class="link"><a href="#">ROI</a></div>
         <div class="separator"></div>
@@ -31,7 +31,7 @@
             </div>
             <div class="card">
                 <div class="title">Surface utilisée</div>
-                <div class="content"> {{ dieu["nb_panneaux"] * dieu["panneau"]["surface"] | int | round(1) }} m²</div>
+                <div class="content"> {{ (dieu["nb_panneaux"] * dieu["panneau"]["surface"]) | round(1) }} m²</div>
             </div>
             <div class="card">
                 <div class="title">Référence panneau</div>
