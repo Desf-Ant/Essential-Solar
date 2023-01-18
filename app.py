@@ -35,6 +35,10 @@ def dashboard():
 def details():
     return render_template("pages/dashboard/details.html")
 
+@app.route("/dashboard/maintenance")
+def maintenance():
+    return render_template("pages/dashboard/maintenance.html")
+
 
 def open_csv(path="static/data/courbe_puissance_charge_lycee_cassin.csv") :
     dates = []

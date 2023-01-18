@@ -18,7 +18,7 @@
         <div class="separator"></div>
         <div class="link"><a href="#">ROI</a></div>
         <div class="separator"></div>
-        <div class="link"><a href="#">Maintenance</a></div>
+        <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
         <div class="separator"></div>
     </aside>
 
@@ -27,7 +27,7 @@
         
         <div class="bigCardBox">
             <div class="bigCard">
-                <div class="title"> {{ dieu["panneau"]["reference"] }} </div>
+                <div class="title"> Panneau : {{ dieu["panneau"]["reference"] }} </div>
                 <div class="content">Coût unitaire  :    {{ dieu["panneau"]["prix"] }} € </div>
                 <div class="content">Puissance      :    {{ dieu["panneau"]["gamme_puissance"] }} Wp </div>
                 <div class="content">Technologie    :    {{ dieu["panneau"]["type"] }} </div>
@@ -41,15 +41,34 @@
         </div>
         <div class="bigCardBox">
             <div class="bigCard">
-                <div class="title"> Turbo Energy 48v 5.0K </div>
+                <div class="title"> Onduleur : Turbo Energy 48v 5.0K </div>
                 <div class="content">Coût unitaire  :    {{ 10 }} € </div>
                 <div class="content">Puissance      :    {{ 500 }} W </div>
-                <div class="content">Technologie    :    {{ eau }} </div>
-                <div class="content">Efficacite     :    {{ faible }} </div>
+                <div class="content">Technologie    :    {{ "eau" }} </div>
+                <div class="content">Efficacite     :    {{ "faible" }} </div>
                 <div class="content">Poids          :    {{ 100 }}kg </div>
             </div>
             <div class="card">
                 <div class="content"> {{ 20 }} €</div>
+            </div>
+        </div>
+        <div class="bigCardBox">
+            <div class="bigCard">
+                <div class="title"> Batterie : LUNA2000 5-E0 </div>
+                <div class="content">Coût unitaire  :    {{ 80 }} € </div>
+                <div class="content">Puissance      :    {{ 500 }} W </div>
+                <div class="content">Technologie    :    {{ "sable" }} </div>
+                <div class="content">Efficacite     :    {{ "énorme" }} </div>
+                <div class="content">Poids          :    {{ 40 }}kg </div>
+            </div>
+            <div class="card">
+                <div class="content"> {{ 960 }} €</div>
+            </div>
+        </div>
+        <div class="bigCardBox">
+            <div class="card">
+                <div class="title">Coût total de l'installation</div>
+                <div class="content"> {{ (dieu["nb_panneaux"] * dieu["panneau"]["prix"]+20+960) | round(1) }} €</div>
             </div>
         </div>
 

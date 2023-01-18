@@ -147,10 +147,11 @@
     margin: 10px;
     padding: 20px 10px;
     background-color: #fff;
-    width : 50%;
+    width : 65%;
     border-radius: 5px;
     display:flex;
     flex-direction:column;
+    justify-content: center;
 }
 
 .bigCard .title {
