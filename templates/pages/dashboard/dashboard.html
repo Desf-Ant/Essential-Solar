@@ -16,7 +16,7 @@
         <div class="separator"></div>
         <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
         <div class="separator"></div>
-        <div class="link"><a href="#">ROI</a></div>
+        <div class="link"><a href="{{ url_for('roi') }}">ROI</a></div>
         <div class="separator"></div>
         <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
         <div class="separator"></div>
@@ -84,8 +84,7 @@
 <script>
     create_load_curve(
         document.getElementById('conso_annuelle_chart'),
-        d3.csv("static/data/simplified_courbe_puissance_charge_lycee_cassin.csv"),
-        callback_simplified = true
+        d3.csv("static/data/courbe_puissance_charge_lycee_cassin.csv"),
     );
     create_load_mono_curve(
         document.getElementById('monotone_puissance_chart'),

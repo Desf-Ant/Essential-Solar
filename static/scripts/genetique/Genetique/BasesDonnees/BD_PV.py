@@ -3,15 +3,15 @@ import csv
 
 class BD_PV :
 
-    nb_panneaux = 1951
+    nb_panneaux = 307
 
     def __init__(self) :
         self.type_panneaux = []
 
         # ref,price by Wh,type,efficacite,gamme puissance,poids,region,dimension,prix theorique
 
-        with open("static/scripts/genetique/Genetique/BasesDonnees/csv/dataClean.csv", "r") as file:
-            reader = csv.DictReader(file, delimiter=";")
+        with open("static/scripts/genetique/Genetique/BasesDonnees/csv/EuropeanDataClean.csv", "r") as file:
+            reader = csv.DictReader(file, delimiter=",")
             for row in reader :
                 self.type_panneaux.append(PV(
                     row["ref"],

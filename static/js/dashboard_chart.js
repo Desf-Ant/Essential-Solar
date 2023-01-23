@@ -137,3 +137,38 @@ function create_load_mono_curve(element, csv){
 
    });
 }
+
+function create_semaine_type(element,titre, csv) {
+   var x = [];
+   var y = [];
+
+   csv.then( (data) => {
+      let keys = Object.keys(data[0]);
+
+      data.forEach(row => {
+         x.push(row[keys[0]]);
+         y.push(parseInt(row[keys[1]]));
+      });
+
+      element.classList.remove("loadingChart");
+      new Chart(element, {
+         type: 'line',
+         data: {
+         labels: x,
+         datasets: [{
+            label: titre,
+            data: y,
+            borderWidth: 1
+         }]
+         },
+         options: {
+            elements: {
+                  point:{
+                     radius: 0
+                  }
+            }
+         }
+      });
+
+   });
+}
