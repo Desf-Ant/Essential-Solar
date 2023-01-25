@@ -19,7 +19,7 @@
 </div>
 
 <div class="main">
-    <form id="regForm" action="">
+    <form id="regForm" action="{{ url_for('dashboard') }}" method="POST">
 
         <!-- One "tab" for each step in the form: -->
         <div class="tab">
@@ -30,9 +30,9 @@
         </div>
 
         <div class="tab">
-            <h2>Quelle est votre adresse ?</h2>
+            <h2>Quel est votre numéro de point d'accès ?</h2>
             <br/>
-            <p><input placeholder="11 Rue Sully ..." oninput=""></p>
+            <p><input placeholder="1234567" oninput="" name="access_point"></p>
             <div id="map"></div>
 
         </div>
@@ -40,18 +40,25 @@
         <div class="tab">
             <h2>Combien de surface pouvez-vous couvrir ?</h2>
             <br />
-            <p><input placeholder="m2" oninput=""></p>
+            <p><input placeholder="m2" oninput="" name="surface"></p>
         </div>
 
         <div class="tab">
             <h2>À quel pourcentage souhaitez vous faire correspondre votre projet au plan sobriété RT2020 ?</h2>
             <br />
-            <p><input placeholder="...%" oninput="this.className = ''"></p>
+            <p><input placeholder="...%" oninput="this.className = ''" name="rt2020"></p>
             <a href="https://www.ecologie.gouv.fr/reglementation-environnementale-re2020">Qu'est ce que le RT2020 ?</a>
+            <br/>
         </div>
-
+        
+        
         <div class="tab">
             <h2>Vous y êtes presque, c'est la dernière étape ...</h2>
+        </div>
+
+        <div class="center-div" id="div-loader">
+            <div class="loader"></div>
+            <h2>Calculs en cours ...</h2>
         </div>
 
         <!-- Buttons -->

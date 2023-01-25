@@ -1,0 +1,45 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<!-- https://medium.com/@kevjose/building-dashboards-using-grid-and-flex-box-620adc1fff51 -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<div class="grid-container">
+    <header class="header"></header>
+    <aside class="aside">
+        <div class="title">Essential Solar</div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('dashboard') }}">Général</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('roi') }}">ROI</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
+        <div class="separator"></div>
+    </aside>
+
+    <main class="main">
+        {% set dieu = session["dieu"] %}
+        
+       
+
+    </main>
+
+    
+    <footer class="footer">
+        <div class="footer_copyright">all copyrights reserved&copy;</div>
+        <div class="footer_byline">Essential Solar;</div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard_chart.js') }}"></script>
+<script>
+
+</script>
+
+{% endblock %}

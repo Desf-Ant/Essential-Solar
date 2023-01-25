@@ -1,0 +1,95 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<!-- https://medium.com/@kevjose/building-dashboards-using-grid-and-flex-box-620adc1fff51 -->
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<div class="grid-container">
+    <header class="header"></header>
+    <aside class="aside">
+        <div class="title">Essential Solar</div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('dashboard') }}">Général</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('roi') }}">ROI</a></div>
+        <div class="separator"></div>
+        <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
+        <div class="separator"></div>
+    </aside>
+    <main class="main">
+        {% set dieu = session["dieu"] %}
+        <!-- Partie Carte -->
+        <div class="cardbox">
+            <div class="card">
+                <div class="title">Nombre de panneaux déployés</div>
+                <div class="content"> {{ dieu["nb_panneaux"] }} </div>
+            </div>
+            <div class="card">
+                <div class="title">Surface utilisée</div>
+                <div class="content"> {{ (dieu["nb_panneaux"] * dieu["panneau"]["surface"]) | round(1) }} m²</div>
+            </div>
+            <div class="card">
+                <div class="title">Référence panneau</div>
+                <div class="content"> {{ dieu["panneau"]["reference"] }} </div>
+            </div>
+        </div>
+        <div class="cardbox">
+            <div class="card">
+                <div class="title">Référence onduleur</div>
+                <div class="content"> Turbo Energy 48v 5.0K </div>
+            </div>
+            <div class="card">
+                <div class="title">Nombre et référence batterie</div>
+                <div class="content">LUNA2000 5-E0</div>
+            </div>
+        </div>
+
+
+        <div class="chart">
+            <canvas id="conso_annuelle_chart" class="loadingChart"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="monotone_puissance_chart" class="loadingChart"></canvas>
+        </div>
+
+        <div class="cardbox">
+            <div class="card">
+                <div class="title">Prix du kWh sur 20 ans</div>
+                <div class="content"> 0.56€ </div>
+            </div>
+            <div class="card">
+                <div class="title">Retour sur Investissement</div>
+                <div class="content">450€</div>
+            </div>
+        </div>
+
+        <div class="buttonBox">
+            <button class="print_button" role="button">Imprimer</button>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="footer_copyright">all copyrights reserved&copy;</div>
+        <div class="footer_byline">Essential Solar;</div>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard_chart.js') }}"></script>
+<script>
+    create_load_curve(
+        document.getElementById('conso_annuelle_chart'),
+        d3.csv("static/data/courbe_puissance_charge_lycee_cassin.csv"),
+    );
+    create_load_mono_curve(
+        document.getElementById('monotone_puissance_chart'),
+        d3.csv("static/data/monotone_puissance_lycee_cassin.csv")
+        );
+</script>
+
+{% endblock %}

@@ -37,6 +37,8 @@ function nextPrev(n) {
     currentTab = currentTab + n;
 
     if (currentTab >= x.length) {
+        document.getElementById("div-loader").style.display="flex";
+        console.log("submitting");
         document.getElementById("regForm").submit();
         return false;
     }
