@@ -28,10 +28,11 @@ def dashboard():
         create_load_simple()
 
         # Création de la monotonne de puissance depuis la courbe de charge
-        calc_create_monotone()
+        consommation_max = calc_create_monotone() * 1000
 
         # Algorithme évolutionniste pour la meilleure réponse
-        dieu = Dieu(consommation_max=380_000,surface_disponible=int(request.form["surface"]))
+        dieu = Dieu(consommation_max=consommation_max*(100-int(request.form["rt2020"])),
+                    surface_disponible=int(request.form["surface"]))
         session["dieu"] = dieu.toJson() # On save le résultat dans une variable de session
 
         # Algorithme pour dimensionner la batterie
@@ -118,6 +119,8 @@ def calc_create_monotone(path="static/data/courbe_puissance_charge_lycee_cassin.
         writer = csv.writer(file)
         for i in range(len(cons)) :
             writer.writerow([freq_cumul[i],cons[i]])
+            
+    return cons[0]
 
 def create_load_simple(path="static/data/courbe_puissance_charge_lycee_cassin.csv") :
     conso = {}
