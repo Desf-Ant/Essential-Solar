@@ -16,9 +16,7 @@
             <a href=""><img src="{{url_for('static', filename='/images/logo.png')}}"/></a>
             <div class ="nav-links">
                 <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">SOLUTION</a></li>
-                    <li><a href="">ABOUT US</a></li>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
                     <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
                 </ul>
             </div>
@@ -94,9 +92,6 @@
   </div>
 
 <section class="footer">
-    <h4>
-        About Us
-    </h4>
     <div class="icons" >
         <!--<i  class="fa fa-facebook"></i>-->
     </div.class>

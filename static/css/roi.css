@@ -72,9 +72,7 @@
     text-align: center;
 }
 
-.aside .link:hover {
-    background-color: #2443bd;
-}
+
 
 .aside .link a {
     font-size: larger;
@@ -125,15 +123,6 @@
     line-height: 64px;
 }
 
-.card:hover {
-    background:#3498db;
-}
-.card:hover .title {
-    color:white;
-}
-.card:hover .content {
-    color:white;
-}
 
 /* Big card for details */
 .bigCardBox {
@@ -167,25 +156,6 @@
     font-size: .75em;
     color: gray;
     padding-left: 5%;
-}
-
-.bigCardBox:hover .card {
-    background:#3498db;
-}
-.bigCardBox:hover .bigCard {
-    background:#3498db;
-}
-.bigCardBox:hover .card .title {
-    color:white;
-}
-.bigCardBox:hover .card .content {
-    color:white;
-}
-.bigCardBox:hover .bigCard .title {
-    color:white;
-}
-.bigCardBox:hover .bigCard .content {
-    color:white;
 }
 
 /* Chart */
@@ -254,8 +224,4 @@
   
 .print_button:active {
     background-color: #006AE8;
-}
-
-.print_button:hover {
-    background-color: #1C84FF;
 }

@@ -3,7 +3,7 @@ import csv
 
 class BD_PV :
 
-    nb_panneaux = 307
+    nb_panneaux = 305
 
     def __init__(self) :
         self.type_panneaux = []

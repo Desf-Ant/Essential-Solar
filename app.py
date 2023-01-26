@@ -110,10 +110,9 @@ def calc_create_monotone(path="static/data/courbe_puissance_charge_lycee_cassin.
             freq_cumul.append(freq[i])
 
     for i in range(len(freq_cumul)):
-        freq_cumul[i] = round(freq_cumul[i]*100,2)
+        freq_cumul[i] = round(freq_cumul[i]*8760,2)
 
     cons.reverse()
-    freq_cumul.reverse()
 
     with open("static/data/monotone_puissance_lycee_cassin.csv", "w", newline='') as file :
         writer = csv.writer(file)
