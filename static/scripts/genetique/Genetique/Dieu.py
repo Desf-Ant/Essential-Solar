@@ -21,7 +21,7 @@ class Dieu :
 
         self.run()
 
-    def run(self) : 
+    def run(self) :
         self.initialize()
         index_score, score = self.anotherGeneration()
         while True:
@@ -49,19 +49,19 @@ class Dieu :
             pen = self.penality_function(sol)
             sol.score = fit + pen
             # print("fit", fit, "pen", pen, "total", fit-pen, "score", sol.score)
-        
+
         #Trier la liste des toutes les solutions dans l'ordre des meilleures (ici meilleur score est le plus bas)
         self.liste_solutions.sort(key= lambda sol: sol.score, reverse=False)
 
     def fitness_function (self, solution:Solution) :
         somme = solution.getPrice(self.BD_pv) / solution.getPuissanceTotale(self.BD_pv)
-        return somme 
-    
+        return somme
+
     def penality_function(self, solution:Solution) -> int:
         penality = 0
         if solution.getPuissanceTotale(self.BD_pv) < self.consommation_max :
             penality += 10_000
-        if solution.getSurfaceTotale(self.BD_pv) > self.surface_disponible : 
+        if solution.getSurfaceTotale(self.BD_pv) > self.surface_disponible :
             penality += (100_000_000 * solution.getSurfaceTotale(self.BD_pv)- self.surface_disponible)
         return penality
 
@@ -69,10 +69,10 @@ class Dieu :
         for i in range(int(self.nb_solutions/2)):
             indexS1, indexS2 = self.selection()
             self.croisement(indexS1, indexS2)
-            
+
         if len(self.liste_next_generation) != self.nb_solutions :
             print("Moins de solution dans la nouvelle génération")
-        
+
 
 
     def selection(self) -> int:
@@ -80,7 +80,7 @@ class Dieu :
         borne_superieure = max(int((1-self.current_generation/self.generation_max)*self.nb_solutions), int(self.nb_solutions*0.05))
         s1, s2 = randint(0,borne_superieure), randint(0,borne_superieure)
         return s1, s2
-    
+
     def croisement(self,indexS1:int, indexS2:int) :
         pivot = randint(0, Solution.nb_attribut-1)
         attributs_1 = self.liste_solutions[indexS1].attributs[:pivot] + self.liste_solutions[indexS2].attributs[pivot:]
@@ -93,7 +93,7 @@ class Dieu :
 
         self.liste_next_generation.append(new_sol_1)
         self.liste_next_generation.append(new_sol_2)
-    
+
     def mutation(self) :
         for i in range(len(self.liste_next_generation)) :
             for j in range(len(self.liste_next_generation[i].attributs)) :
@@ -107,27 +107,27 @@ class Dieu :
                         self.liste_next_generation[i].attributs[j] = randint(borne_inf,borne_sup)
                     else :
                         self.liste_next_generation[i].attributs[j] = randint(0,Solution.max_attribut_borne[j])
-                    
-    
+
+
     def goToNextGeneration(self):
         self.liste_solutions = list(self.liste_next_generation)
         self.liste_next_generation = []
 
     def anotherGeneration(self) -> int:
         scores = []
-        for sol in self.liste_solutions: 
+        for sol in self.liste_solutions:
             fit = self.fitness_function(sol)
             pen = self.penality_function(sol)
             scores.append(fit-pen)
         return scores.index(max(scores)), max(scores)
-    
+
     def toJson(self) :
         return {
             "nb_panneaux" : self.best_solution.attributs[1],
             "panneau" : self.BD_pv.getPanneaux(self.best_solution.attributs[0]).toJson()
         }
 
-  
+
 if __name__ == "__main__" :
     d = Dieu()
     print("La meilleure solution est", d.best_solution.attributs)
@@ -135,4 +135,3 @@ if __name__ == "__main__" :
     print("\n\nprix panneaux:", d.best_solution.attributs[1] * d.BD_pv.getPanneaux(d.best_solution.attributs[0]).prix)
     print( "surface prise:",d.best_solution.attributs[1] * d.BD_pv.getPanneaux(d.best_solution.attributs[0]).surface)
     print( "puissance atteinte:",d.best_solution.attributs[1] * float(d.BD_pv.getPanneaux(d.best_solution.attributs[0]).gamme_puissance.split(" ")[0]))
-    
