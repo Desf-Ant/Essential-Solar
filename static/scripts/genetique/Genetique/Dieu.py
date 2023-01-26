@@ -8,11 +8,11 @@ class Dieu :
     def __init__ (self, consommation_max=300_000, surface_disponible=1000) :
         self.liste_solutions = []
         self.liste_next_generation = []
-        self.nb_solutions = 10
+        self.nb_solutions = 100
         self.score_min = 5_000_000
         self.best_solution = None
         self.current_generation = 0
-        self.generation_max = 1000
+        self.generation_max = 10_000
 
         self.consommation_max = consommation_max
         self.surface_disponible = surface_disponible

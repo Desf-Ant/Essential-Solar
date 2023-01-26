@@ -16,14 +16,13 @@
         <div class="separator"></div>
         <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
         <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('roi') }}">ROI</a></div>
-        <div class="separator"></div>
         <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
         <div class="separator"></div>
     </aside>
 
     <main class="main">
         {% set dieu = session["dieu"] %}
+        {% set capacite_batterie = session["batterie"] %}
         
         <div class="bigCardBox">
             <div class="bigCard">
@@ -42,34 +41,28 @@
         </div>
         <div class="bigCardBox">
             <div class="bigCard">
-                <div class="title"> Onduleur : Turbo Energy 48v 5.0K </div>
-                <div class="content">Coût unitaire  :    {{ 10 }} € </div>
-                <div class="content">Puissance      :    {{ 500 }} W </div>
-                <div class="content">Technologie    :    {{ "eau" }} </div>
-                <div class="content">Efficacite     :    {{ "faible" }} </div>
-                <div class="content">Poids          :    {{ 100 }}kg </div>
+                <div class="title"> Onduleur : </div>
+                <div class="content">Coût unitaire  :    {{ 1800 }} € </div>
+                <div class="content">Technologie    :    {{ "centralisé" }} </div>
             </div>
             <div class="card">
-                <div class="content"> {{ 20 }} €</div>
+                <div class="content"> {{ 1800 }} €</div>
             </div>
         </div>
         <div class="bigCardBox">
             <div class="bigCard">
-                <div class="title"> Batterie : LUNA2000 5-E0 </div>
-                <div class="content">Coût unitaire  :    {{ 80 }} € </div>
-                <div class="content">Puissance      :    {{ 500 }} W </div>
-                <div class="content">Technologie    :    {{ "sable" }} </div>
-                <div class="content">Efficacite     :    {{ "énorme" }} </div>
-                <div class="content">Poids          :    {{ 40 }}kg </div>
+                <div class="title"> Batterie :  </div>
+                <div class="content">Coût unitaire      :    {{ 400 }} €/kWh </div>
+                <div class="content">Capacité totale    :    {{ capacite_batterie / 1000 }} kWh </div>
             </div>
             <div class="card">
-                <div class="content"> {{ 960 }} €</div>
+                <div class="content"> {{ capacite_batterie / 1000 * 400 }} €</div>
             </div>
         </div>
         <div class="bigCardBox">
             <div class="card">
                 <div class="title">Coût total de l'installation</div>
-                <div class="content"> {{ (dieu["nb_panneaux"] * dieu["panneau"]["prix"]+20+960) | round(1) }} €</div>
+                <div class="content"> {{ (dieu["nb_panneaux"]*dieu["panneau"]["prix"] + 1800 + (capacite_batterie / 1000 * 400)) | round(1) }} €</div>
             </div>
         </div>
 

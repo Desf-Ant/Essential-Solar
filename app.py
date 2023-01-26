@@ -1,6 +1,7 @@
 from flask import Flask, request, session
 from flask import render_template
 from static.scripts.genetique.Genetique.Dieu import *
+from static.scripts.genetique.Genetique.CellDimension import *
 import csv
 
 app = Flask(__name__)
@@ -9,6 +10,9 @@ app = Flask(__name__)
 def index():
     return render_template("pages/index.html")
 
+@app.route("/contact")
+def contact() : 
+    return render_template("pages/contact.html")
 
 @app.route("/form")
 def form():
@@ -18,21 +22,31 @@ def form():
 def dashboard():
     if request.method == "POST" or not "dieu" in session:
         # Récupération de la courbe de charge avec le point de récupération request.form["access_point"] sur l'API Enedis
+        # TODO
         
         # Creation de la courbe de charge simplifié
         create_load_simple()
         
         # Création de la monotonne de puissance depuis la courbe de charge
         calc_create_monotone()
-        
-        
-        
+
         # Algorithme évolutionniste pour la meilleure réponse
         dieu = Dieu(consommation_max=380_000,surface_disponible=int(request.form["surface"]))
         session["dieu"] = dieu.toJson() # On save le résultat dans une variable de session
         
+        # Algorithme pour dimensionner la batterie
+        batterie = CellDimension(dieu.BD_pv.getPanneaux(dieu.best_solution.attributs[0]),
+                                 get_conso_winter())
+        session["batterie"] = batterie.getCapacite()
+        
         # Creation des deux semaines types
         semaine_type()
+        
+        # Make the ROI
+        prixkWhSansInstallation, prix_offPeak, totalkWh = make_ROI()
+        session["kWhSansInstallation"] = prixkWhSansInstallation
+        session["totalkWh"] = totalkWh
+        session["prix_offPeak"] = prix_offPeak
         
     return render_template("pages/dashboard/dashboard.html")
 
@@ -203,6 +217,44 @@ def semaine_type (path="static/data/courbe_puissance_charge_lycee_cassin.csv") :
         for i in range(len(consommation_e)) :
             writer.writerow([i%24,consommation_e[i]])
 
+def get_conso_winter(path = "static/data/courbe_puissance_charge_lycee_cassin.csv") :
+    conso = []
+    with open(path, "r") as file : 
+        reader = csv.reader(file)
+        reader = list(reader)
+        for i in range(1,len(reader)) :
+            #01/01/2022 01:10:00
+            date = reader[i][0].split(" ")[0].split("/")
+            
+            # On reagrde si on est dans les mois d'hiver
+            if int(date[1]) <= 3 :
+                conso.append(reader[i])
+    return conso
+
+def make_ROI() :
+    # SOMME[valeur(pas de 10min)]       /     [heure/pas(60/10)] * [prix moyen du kWh(0,1752€)] * [nombres d'années total]   
+    sum_offPeak, sum_Peak = sum_courbe_puissance()
+    prix_offPeak = ( sum_offPeak / 6 * 0.1270 )*25
+    prixkWh = (( sum_offPeak / 6 * 0.1270 )+( sum_Peak / 6 * 0.1752 )) * 25
+    
+    return prixkWh, prix_offPeak, sum_Peak + sum_offPeak
+    
+
+def sum_courbe_puissance(path = "static/data/courbe_puissance_charge_lycee_cassin.csv") :
+    sum_offPeak = 0
+    sum_peak = 0
+    with open(path, "r") as file : 
+        reader = csv.reader(file)
+        reader = list(reader)
+        for i in range(1,len(reader)) :
+            #01/01/2022 01:10:00
+            horaire = reader[i][0].split(" ")[1].split(":")
+            if int(horaire[0]) < 8 or int(horaire[0]) > 20 :
+                sum_offPeak += int(reader[i][1])
+            else : 
+                sum_peak += int(reader[i][1])
+    return sum_offPeak, sum_peak
+                
 if __name__ == "__main__" :
     app.secret_key = "the secret key"
     app.config['SESSION_TYPE'] = 'filesystem'

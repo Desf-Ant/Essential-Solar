@@ -3,38 +3,110 @@
 {% block body %}
 <!-- https://medium.com/@kevjose/building-dashboards-using-grid-and-flex-box-620adc1fff51 -->
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/roi.css') }}">
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
-<div class="grid-container">
-    <header class="header"></header>
-    <aside class="aside">
-        <div class="title">Essential Solar</div>
-        <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('dashboard') }}">Général</a></div>
-        <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('details') }}">Détails</a></div>
-        <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('roi') }}">ROI</a></div>
-        <div class="separator"></div>
-        <div class="link"><a href="{{ url_for('maintenance') }}">Maintenance</a></div>
-        <div class="separator"></div>
-    </aside>
+<header class="header"></header>
 
-    <main class="main">
-        {% set dieu = session["dieu"] %}
-        
-       
+<main class="main">
+    {% set dieu = session["dieu"] %} 
+    {% set capacite_batterie = session["batterie"] %}
+    {% set prixkWhSans = session["kWhSansInstallation"] %}
+    {% set totalkWh = session["totalkWh"] %}
+    {% set prix_offPeak = session["prix_offPeak"] %}
 
-    </main>
+    <div class="cardbox">
+        <div class="card">
+            <div class="title">Nombre de panneaux déployés</div>
+            <div class="content"> {{ dieu["nb_panneaux"] }} </div>
+        </div>
+        <div class="card">
+            <div class="title">Surface utilisée</div>
+            <div class="content"> {{ (dieu["nb_panneaux"] * dieu["panneau"]["surface"]) | round(1) }} m²</div>
+        </div>
+        <div class="card">
+            <div class="title">Référence panneau</div>
+            <div class="content"> {{ dieu["panneau"]["reference"] }} </div>
+        </div>
+    </div>
+    <div class="cardbox">
+        <div class="card">
+            <div class="title">Référence onduleur</div>
+            <div class="content"> Turbo Energy 48v 5.0K </div>
+        </div>
+        <div class="card">
+            <div class="title">Batterie</div>
+            <div class="content">{{ (capacite_batterie / 1000) | round(2) }} kWh</div>
+        </div>
+    </div>
+
+    <div class="cardbox">
+        <div class="card">
+            <div class="title">Prix total de l'électricité sur 25 ans sans l'installation</div>
+            <div class="content"> {{ prixkWhSans | round(2)}} € </div>
+        </div>
+        <div class="card">
+            <div class="title">Prix du kWh sur 25 ans</div>
+            <div class="content"> {{ ((dieu["nb_panneaux"]*dieu["panneau"]["prix"] + 1800 + (capacite_batterie / 1000 * 400) + prix_offPeak) / (totalkWh*25)) | round(4) }} €</div>
+        </div>
+        <div class="card">
+            <div class="title">Retour sur Investissement</div>
+            <div class="content"> {{ (prixkWhSans - ((dieu["nb_panneaux"]*dieu["panneau"]["prix"] + 1800 + (capacite_batterie / 1000 * 400)*2) + prix_offPeak)) | round(2) }} €</div>
+        </div>
+    </div>
 
     
-    <footer class="footer">
-        <div class="footer_copyright">all copyrights reserved&copy;</div>
-        <div class="footer_byline">Essential Solar;</div>
-    </footer>
-</div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+    <div class="bigCardBox">
+        <div class="bigCard">
+            <div class="title"> Onduleur : </div>
+            <div class="content">Coût unitaire  :    {{ 1800 }} € </div>
+            <div class="content">Technologie    :    {{ "centralisé" }} </div>
+        </div>
+        <div class="card">
+            <div class="content"> {{ 1800 }} €</div>
+        </div>
+    </div>
+    <div class="bigCardBox">
+        <div class="bigCard">
+            <div class="title"> Batterie :  </div>
+            <div class="content">Coût unitaire      :    {{ 400 }} €/kWh </div>
+            <div class="content">Capacité totale    :    {{ capacite_batterie / 1000 }} kWh </div>
+        </div>
+        <div class="card">
+            <div class="content"> {{ capacite_batterie / 1000 * 400 }} €</div>
+        </div>
+    </div>
+    <div class="bigCardBox">
+        <div class="card">
+            <div class="title">Coût total de l'installation</div>
+            <div class="content"> {{ (dieu["nb_panneaux"]*dieu["panneau"]["prix"] + 1800 + (capacite_batterie / 1000 * 400)) | round(1) }} €</div>
+        </div>
+    </div> 
+
+</main>
+
+
+<footer class="footer">
+    <div class="footer_copyright">all copyrights reserved&copy;</div>
+    <div class="footer_byline">Essential Solar;</div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/dashboard_chart.js') }}"></script>

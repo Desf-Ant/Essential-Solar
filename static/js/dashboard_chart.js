@@ -172,3 +172,7 @@ function create_semaine_type(element,titre, csv) {
 
    });
 }
+
+function print_all(page) {
+   window.open("/roi").print();
+}

@@ -1,0 +1,261 @@
+.body{
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: 
+        'aside header'
+        'aside main'
+        'aside footer';
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background-color: #89A0F4;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: #4C6EF5;
+}
+
+.main {
+    grid-area: main;
+    background-color: white;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: whitesmoke;
+}
+
+.header, .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: darkblue;
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Liens à gauche */
+.aside .title {
+    padding: 50px 0;
+    border-bottom: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 800;
+    color: white;
+}
+
+.aside .link {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    text-align: center;
+}
+
+.aside .link:hover {
+    background-color: #2443bd;
+}
+
+.aside .link a {
+    font-size: larger;
+    text-decoration: None;
+    color: white;
+}
+
+.aside .separator {
+    background-color: #2443bd;;
+    height: 2px;
+    width: 33%;
+    border: 5px 0;
+    margin: 2px 0;
+}
+
+/* Cartes d'information */
+.cardbox {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 10px;
+    padding: 20px 10px;
+    background-color: #fff;
+    width : 17%;
+    border-radius: 5px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.card .title {
+    text-align:center;
+    color: gray;
+    font-weight: 600;
+    font-size: 1em;
+}
+.card .content {
+    text-align:center;
+    font-weight: 800;
+    font-size: 1.25em;
+    line-height: 64px;
+}
+
+.card:hover {
+    background:#3498db;
+}
+.card:hover .title {
+    color:white;
+}
+.card:hover .content {
+    color:white;
+}
+
+/* Big card for details */
+.bigCardBox {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.bigCard {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 10px;
+    padding: 20px 10px;
+    background-color: #fff;
+    width : 65%;
+    border-radius: 5px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.bigCard .title {
+    text-align:left;
+    font-weight: 600;
+    font-size: 1.25em;
+    padding-left: 1%;
+}
+
+.bigCard .content {
+    text-align:left;
+    font-weight: 400;
+    font-size: .75em;
+    color: gray;
+    padding-left: 5%;
+}
+
+.bigCardBox:hover .card {
+    background:#3498db;
+}
+.bigCardBox:hover .bigCard {
+    background:#3498db;
+}
+.bigCardBox:hover .card .title {
+    color:white;
+}
+.bigCardBox:hover .card .content {
+    color:white;
+}
+.bigCardBox:hover .bigCard .title {
+    color:white;
+}
+.bigCardBox:hover .bigCard .content {
+    color:white;
+}
+
+/* Chart */
+
+.chart {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+.loadingChart {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Print button */
+.buttonBox{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.print_button {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: "RM Neue",sans-serif;
+    font-size: 1.5em;
+    line-height: 1.15;
+    margin: 0;
+    padding: 15px 40px;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 25px 0;
+}
+  
+.print_button:active {
+    background-color: #006AE8;
+}
+
+.print_button:hover {
+    background-color: #1C84FF;
+}
